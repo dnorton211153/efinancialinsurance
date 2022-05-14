@@ -19,7 +19,7 @@ PropertiesView.prototype.render = function(callback, params) {
     params.indexActive = '';
     params.propertiesActive = 'active';
     this.dom.innerHTML = this.template(params);
-    document.title = "Norton BlueSky Properties";
+    document.title = "eFinancialInsurance";
     document.documentElement.scrollTop = 0;
     window.scrollTo(0, 220);
     callback();

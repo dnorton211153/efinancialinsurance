@@ -34,11 +34,11 @@ nav {
     }
 
     nav #navLogo {
-        margin-right: 10%;
+        /* margin-right: 10%; */
     }
 
     nav .outlineButton {
-        margin-left: 10%;
+        /* margin-left: 10%; */
         background: linear-gradient(to right, blue, yellow);
         border-radius: 40px;
     }

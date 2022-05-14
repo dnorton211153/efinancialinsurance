@@ -31,7 +31,7 @@ HomeView.prototype.render = async function(callback, context) {
         document.querySelector('#seeMore').classList.add("inactive");
     });
 
-    document.title = `Norton BlueSky Home`;
+    document.title = `eFinancialInsurance`;
     window.scrollTo(0,0);
     callback();
 
