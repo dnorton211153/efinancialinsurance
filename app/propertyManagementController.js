@@ -4,7 +4,7 @@ import { PropertyManagementView } from "./views/propertyManagementView.js";
 import { PropertyMasterView } from "./views/propertyMasterView.js";
 import { PropertyDetailsView } from "./views/propertyDetailsView.js";
 import { EventDepot } from "./eventDepot.js";
-import { NewsletterListStore } from "./newsletterListStore.js";
+
 
 class PropertyManagementController {
     
@@ -16,7 +16,7 @@ class PropertyManagementController {
         this.addEventListeners();
         this.newPropertyInProcess = false;
         this.serviceStore = new ServiceStore();
-        this.newsletterListStore = new NewsletterListStore();
+        // this.newsletterListStore = [];
         this.propertyMasterView = new PropertyMasterView(this.eventDepot);
         this.propertyDetailsView = new PropertyDetailsView(this.eventDepot);
         this.siteConfigDisplayed = false;
@@ -36,16 +36,16 @@ class PropertyManagementController {
     }
 
     deleteEmail(e) {
-        this.newsletterListStore.remove(e.index);
-        this.configObj.mailingList = this.newsletterListStore.getAll();
+        // this.newsletterListStore.remove(e.index);
+        // this.configObj.mailingList = this.newsletterListStore.getAll();
         this.propertyManagementView.reloadSiteConfiguration(this.configObj);
     }
 }
 
 PropertyManagementController.prototype.load = function(request, callback) {
 
-    this.newsletterListStore = new NewsletterListStore();
-    this.configObj.mailingList = this.newsletterListStore.getAll();
+    // this.newsletterListStore = [];
+    // this.configObj.mailingList = this.newsletterListStore.getAll();
 
     if (request) {
         let params = getParamsFromRequest(request);

@@ -9,7 +9,8 @@ class GenericController {
 
     load(request) {
 
-        let allServices = this.serviceStore.getAll()
+        // let allServices = this.serviceStore.getAll()
+        let allServices = defaultServices;
 
         if (Object.keys(allServices).length == 0) {
             allServices = loadDefaultServices();

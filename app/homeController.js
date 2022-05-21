@@ -15,7 +15,8 @@ export class HomeController {
     }
 
     load() {
-        let allServices = this.serviceStore.getAll()
+        // let allServices = this.serviceStore.getAll()
+        let allServices = defaultServices;
 
         if (Object.keys(allServices).length == 0) {
             allServices = loadDefaultServices();
@@ -36,8 +37,9 @@ export class HomeController {
 
         if (allServices.length > 0) {
             context.allServices = allServices;
-            context.testimonials = testimonials;
         }
+
+        context.testimonials = testimonials;
 
         this.homeView.render(context);
     }
