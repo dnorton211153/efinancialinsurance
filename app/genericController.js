@@ -13,6 +13,7 @@ class GenericController {
 
         // At least one param is required; the templateName
         let params = getParamsFromRequest(request);
+        let service = allServices.find(el => el.id == params.serviceId);
 
         // Strip the template name from the request.path
         this.genericView.render(params.page, { allServices, service });
