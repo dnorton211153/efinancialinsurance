@@ -91,7 +91,7 @@
 }
 
 #footer {
-    background-image: url("images/newsletter.jpg");
+    background-image: url("/images/newsletter.jpg");
     height: 200px;
 }
 
@@ -102,6 +102,7 @@
 
     #footer #footer1 {
         width: 420px;
+        color: white;
     }
     
     #footer #newsletterForm {

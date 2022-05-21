@@ -34,7 +34,7 @@ const handleGet = async (url) => {
 awaiting an asynchronous load of some resource.
 Call from within an async function, i.e., 
 var result = await delay(); */
-function delay() {
+const delay = () => {
   return new Promise(resolve => {
     setTimeout(() => {
       resolve("resolved");
@@ -42,7 +42,7 @@ function delay() {
   });
 }
 
-function getParamsFromRequest(request) {
+const getParamsFromRequest = (request) => {
 
   let { parameters } = request;
 
@@ -66,7 +66,7 @@ function getParamsFromRequest(request) {
 
 }
 
-function getFromProperties(allServices, attrName) {
+const getFromProperties = (allServices, attrName) => {
 
   let attrArray = [];
   for (let p of allServices) {
@@ -91,10 +91,8 @@ let shuffle = function(array, i0, i1) {
   return array;
 };
 
-
-
 /* Register Handlebars helpers for views */
-function registerHandlebarsHelpers() {
+const registerHandlebarsHelpers = () => {
 
   Handlebars.registerHelper("iconize", function(data) {
     let str;
@@ -113,13 +111,7 @@ function registerHandlebarsHelpers() {
   });
 }
 
-function loadDefaultServices() {
-    return defaultServices;
-}
-
-registerHandlebarsHelpers();
-
-let defaultServices = [
+const defaultServices = [
   {
     id: 0,
     title: "Medicare & Health Insurance",
@@ -166,7 +158,11 @@ let defaultServices = [
   },
 ];
 
-let testimonials = [
+const loadDefaultServices = () => {
+  return defaultServices;
+}
+
+const testimonials = [
 
   { 
     title: "Amazing service!", 
