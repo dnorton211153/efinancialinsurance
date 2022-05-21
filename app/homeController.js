@@ -16,7 +16,6 @@ export class HomeController {
 
     load() {
 
-        console.log(`defaultServices[0].id:${defaultServices[0].id}`);
         let allServices = defaultServices;
         allServices = shuffle(allServices);
 
@@ -33,10 +32,6 @@ export class HomeController {
         }
 
         context.testimonials = testimonials;
-
-
-        console.log(`About to render homeView with context.title ${context.title} context.testimonials[0].title: ${context.testimonials[0].title}`)
-
         this.homeView.render(context);
     }
 }
