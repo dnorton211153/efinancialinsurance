@@ -9,8 +9,6 @@ class HomeView {
     }
 
     async render(context) {
-        console.log("testing within HomeView async render");
-        // console.log(`1 - Rendering homeView with context.title ${context.title} context.testimonials[0].title: ${context.testimonials[0].title}`)
         // if (!context) var context = {};
         context.indexActive = 'active';
 
@@ -19,8 +17,6 @@ class HomeView {
         } 
 
         this.dom = document.getElementById('mainPlaceholder');
-
-        // console.log(`2 - Rendering homeView with context.title ${context.title} context.testimonials[0].title: ${context.testimonials[0].title}`)
         this.dom.innerHTML = this.template(context);
 
         this.router.setRouteLinks();

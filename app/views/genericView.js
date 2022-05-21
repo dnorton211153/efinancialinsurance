@@ -9,7 +9,7 @@ class GenericView {
     }
 
     async render(templateName, context) {
-        if (!context) var context = {};
+        // if (!context) var context = {};
         context[templateName] = 'active';
 
         this.template = await getTemplate(`app/views/templates/${templateName}.hbs`);

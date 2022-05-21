@@ -18,7 +18,7 @@ export class HomeController {
 
         console.log(`defaultServices[0].id:${defaultServices[0].id}`);
         let allServices = defaultServices;
-        // allServices = shuffle(allServices);
+        allServices = shuffle(allServices);
 
         let context = {};
 
@@ -26,7 +26,7 @@ export class HomeController {
         context = allServices.find(el => el.status == 'offer');
 
         // Sort the allServices array in reverse by dateUpdated; take the top three
-        // allServices = allServices.sort((a, b) => a.dateUpdated > b.dateUpdated);
+        allServices = allServices.sort((a, b) => a.dateUpdated > b.dateUpdated);
 
         if (allServices.length > 0) {
             context.allServices = allServices;
