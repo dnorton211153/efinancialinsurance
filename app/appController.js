@@ -1,4 +1,7 @@
-/* Norton's rendition of the MVC Property Mgmt Page (June 2019) */
+/**
+ * AppView
+ * @author Norton 2022
+ */
 import { AppView } from './views/appView.js'
 
 class AppController {

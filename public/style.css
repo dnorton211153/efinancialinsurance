@@ -1,63 +1,40 @@
-body {
-    font-family: "Montserrat"!important;
+#home {
+    margin-top: 40px;
+    text-align: center;
+}
+
+#homeImage {
+    transform: scaleX(1.5) translateY(-290px) scale(2);
+    filter: brightness(0.40);
+    height: 500px
+
+}
+
+#homeImageOverlay {
+    position: absolute;
+    top: 350px;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 70%;
+}
+
+#homePropertyContainer {
+    height: 600px;
+    padding: 10%;
     width: 100%;
+    overflow: hidden;
 }
 
-.inactive {
-    display: none !important;
+#homePropertyTitle {
+    font-size: 40px; font-weight: 600;
 }
 
-a:hover {
-    text-decoration: none;
+
+.outlineButton {
+    /* margin-left: 10%; */
+    background: linear-gradient(to right, blue, yellow);
+    border-radius: 40px;
 }
-
-nav {
-    display: flex;
-    position: fixed;
-    left: 0; top: 0;
-    background-color: #3f6fce;
-    max-height: 120px;
-    width: 100%;
-    padding: 20px;
-    justify-content: center;
-    font-size: 16px;
-    border-bottom: 1px lightblue solid;
-    z-index: 3;
-}
-
-    nav div:first-child {
-        display: flex;
-        flex-direction: row;
-        justify-content: center;
-        align-items: center;
-        width: 100%;
-    }
-
-    nav #navLogo {
-        /* margin-right: 10%; */
-    }
-
-    nav .outlineButton {
-        /* margin-left: 10%; */
-        background: linear-gradient(to right, blue, yellow);
-        border-radius: 40px;
-    }
-
-
-    nav a {
-        padding-left: 20px;
-        padding-right: 20px;
-        color: white;
-    }
-
-    nav a:hover {
-        color: #34d983;
-        text-decoration: none;
-    }
-
-    nav a.active {
-        color: #34d983;
-    }
 
 .outlinedButton {
     background-color: #3f6fce;
@@ -68,47 +45,25 @@ nav {
     margin: 2px;
 }
 
-#home {
-    margin-top: 80px;
+
+.nav-item > a, .dropdown > a {
+    padding-left: 20px;
+    padding-right: 20px;
+    color: white !important;
 }
 
-#propertyMaster {
-    font-size: 14px;
+.navbar-nav a:hover {
+    color: #0d6efd;
+    text-decoration: none;
 }
 
-.row {
-    padding: 7px;
+.navbar-nav a.active {
+    color: white;
 }
 
-main {
-    padding-top: 40px;
-    text-align: left;
-    margin: auto!important;
-}
-
-input {
-    vertical-align: middle;
-    margin-right: 5px!important;
-}
-
-button {
+#contactImage, #homeImage {
+    position: relative;
     width: 100%;
-}
-
-#propertyMaster {
-    padding-left: 40px;
-}
-
-    #propertyMaster > div.row {
-        padding: 3px;
-    }
-
-label {
-    margin: 0;
-}
-
-.propertyDetailButtons:hover {
-    cursor: pointer;
 }
 
 #properties {
@@ -125,87 +80,54 @@ label {
     width: 100%;
 }
 
-#contactImage {
-    position: relative;
-    width: 100%;
+@media (max-width: 920px) {
+    .outlineButton {
+        display: none;
+    }
 }
 
-#searchbar {
-    display: flex;
-    justify-content: center;
-    font-size: 14px;
-    max-width: 100%;
-    position: relative;
-    top: -160px;
-    z-index: 2;
-
+#footer {
+    background-image: url("images/newsletter.jpg");
+    height: 100px;
 }
-    #searchbar>div {
-        display: flex;
-        flex-direction: row;
-        justify-content: center;
-        border: 10px rgba(255, 255, 255, 0.2) solid;
-        border-radius: 70px;
-        overflow: hidden;
+
+    #footer #footerRow {
+        background-color: transparent;
+        font-size: 30px;
     }
 
-        #searchbar button, #searchbar select {
-            font-size: 12px!important;
-            width: 140px!important;
-            height: 70px!important;
-            border-radius: 0!important;
-            background-color: white;
-            border-top-width: 0!important;
-            border-bottom-width: 0!important;
-        }
-
-        #searchbar #bathrooms {
-            border-right: none!important;
-        }
-
-        #searchbar div div:last-child {
-            background-color: white;
-        }
-
-        #searchbar button {
-            border: 1px white solid;
-            border-radius: 70px!important;
-            overflow: hidden;
-            background: linear-gradient(to right, blue, yellow);
-        }
-
-        @media (max-width: 800px) {
-
-            #searchbar>div {
-                margin-top: 160px;
-                flex-direction: column;
-                width: 100%;
-            }
+    #footer #footer1 {
+        width: 420px;
+    }
     
-            #navLogo, #navPhone, #propertiesImage {
-                display: none;
-            }
-            
-            #searchbar div div:last-child {
-                text-align: left;
-            }
+    #footer #newsletterForm {
+        width: 420px;
+        overflow: hidden;
+    }
     
-            #searchbar>div {
-                border-radius: 0px;
-            }
-    
-            #searchbar button, #searchbar select {
-                width: 300px!important;
-            }
+    #footer #btnSubmitNewsletterForm {
+        font-size: 14px;
+        width: 200px;
+        background: linear-gradient(to right, blue, yellow);
+    }
 
-            #homeImageOverlay {
-                top: 30%!important;
-            }
+    #footer #newsletterEmail {
+        width: 300px;
+        font-size: 14px;
+    }
 
-            #homePropertyTitle {
-                font-size: 24px!important; font-weight: 300!important;
-            }
-        }
+#tagLine {
+    color: #828291;
+}
+
+#tagLine div {
+    margin: 20px;
+}
+
+.testimonialImage {
+    width: 60px;
+    height: auto;
+}
 
 #cardsContainer {
     max-width: 90%;
@@ -229,8 +151,8 @@ label {
         }
 
             .card .cardImage {
-                max-width: 100%;
-                height: auto;
+                max-height: 240px;
+                width: auto;
             }
 
             .card .cardCity {
@@ -267,87 +189,8 @@ label {
                 margin: 0 20px 0 20px;
             }
 
-#footer {
-    background-image: url("images/newsletter.jpg");
-    height: 300px;
-}
-
-    #footer #footerRow {
-        background-color: transparent;
-        font-size: 30px;
-    }
-
-    #footer #footer1 {
-        width: 420px;
-    }
-    
-    #footer #newsletterForm {
-        width: 420px;
-        overflow: hidden;
-    }
-    
-    #footer #btnSubmitNewsletterForm {
-        font-size: 14px;
-        width: 200px;
-        background: linear-gradient(to right, blue, yellow);
-    }
-
-    #footer #newsletterEmail {
-        width: 300px;
-        font-size: 14px;
-    }
-
-#tagLine {
-    color: #828291;
-}
-
-#tagLine div {
-    margin: 20px;
-}
-
-#priceBubble, #homeAmenitiesBubble {
-    background: linear-gradient(to right, yellow, blue);
-    overflow: hidden;
-    width: 350px;
-}
-
-#homeImage {
-    transform: scaleX(1.5) translateY(-290px) scale(2);
-    filter: brightness(0.40);
-    z-index: -1;
-}
-
-#homeImageOverlay {
-    position: absolute;
-    top: 40%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    width: 70%;
-}
-
-#homePropertyContainer {
-    height: 600px;
-    padding: 10%;
-    width: 100%;
-    overflow: hidden;
-}
-
-#homePropertyTitle {
-    font-size: 40px; font-weight: 600;
-}
-
-
-
-.testimonialImage {
-    width: 60px;
-    height: auto;
-}
-
-#siteConfigToggle, #addToMailingList, .deleteEmail {
-    cursor: pointer;
-}
-
-#siteConfigToggle:hover, #addToMailingList:hover, .deleteEmail:hover {
-    color: lightblue;
-    border-color: lightblue;
-}
+            #priceBubble, #homeAmenitiesBubble {
+                background: linear-gradient(to right, yellow, blue);
+                overflow: hidden;
+                width: 350px;
+            }

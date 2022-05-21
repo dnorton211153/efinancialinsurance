@@ -1,39 +1,31 @@
-/* Norton's rendition of the MVC Property Mgmt Page (June 2019) */
+/**
+ * HomeView
+ * @author Norton 2022
+ */
 class HomeView {
 
     constructor() {
         this.dom = document.getElementById('mainPlaceholder');
-        this.templateRetrieved = false;
-
-        fetch("app/views/templates/home.hbs")
-        .then(response => response.text())
-        .then(text => {
-          this.template = Handlebars.compile(text);
-          this.templateRetrieved = true;
-        });
-    }
-}
-
-
-HomeView.prototype.render = async function(callback, context) {
-
-    if (!context) var context = {};
-    while (! this.templateRetrieved) {
-        await delay();
     }
 
-    context.indexActive = 'active';
-    context.propertyActive = '';
-    this.dom.innerHTML = this.template(context);
+    async getTemplate() {
+        return await getTemplate('app/views/templates/home.hbs');
+    }
 
-    document.querySelector('#seeMore').addEventListener('click', () => {
-        document.querySelector('#more').classList.remove("inactive");
-        document.querySelector('#seeMore').classList.add("inactive");
-    });
+    async render(context) {
+        if (!context) var context = {};
+        context.indexActive = 'active';
+        context.propertyActive = '';
 
-    document.title = `eFinancialInsurance`;
-    window.scrollTo(0,0);
-    callback();
+        if (!this.template) {
+            this.template = await this.getTemplate();
+        } 
+
+        this.dom.innerHTML = this.template(context);
+
+        document.title = `eFinancialInsurance`;
+        window.scrollTo(0,0);
+    }
 
 }
 

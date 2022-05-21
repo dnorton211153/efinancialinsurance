@@ -20,7 +20,7 @@ ContactView.prototype.render = function(callback, params) {
     this.dom.innerHTML = this.template(params);
     document.title = `Norton BlueSky - Contact`;
     document.documentElement.scrollTop = 0;
-    window.scrollTo(0, 420);
+    // window.scrollTo(0, 120);
     // document.documentElement.scrollTop = 200;
     callback();
 }

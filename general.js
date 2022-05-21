@@ -1,4 +1,23 @@
-/* Norton's rendition of the MVC Property Mgmt Page (June 2019) */
+getOptions = () => {
+  return {
+      method: 'GET',
+  }
+}
+
+getTemplate = async (url) => {
+  try {
+    let response = await fetch(url, getOptions());
+    let text = await response.text();
+    let template = Handlebars.compile(text);
+    return template;
+  } catch (error) {
+    throw error;
+  }
+}
+
+
+
+
 
 /* Simple 10ms delay, useful for initial loop when 
 awaiting an asynchronous load of some resource.
@@ -60,29 +79,6 @@ let shuffle = function(array, i0, i1) {
 
 /* Register Handlebars helpers for views */
 function registerHandlebarsHelpers() {
-  Handlebars.registerHelper("maleCheck", function(data) {
-    let str = "";
-    if (data === "male") str = "checked";
-    return new Handlebars.SafeString(str);
-  });
-
-  Handlebars.registerHelper("femaleCheck", function(data) {
-    let str = "";
-    if (data === "female") str = "checked";
-    return new Handlebars.SafeString(str);
-  });
-
-  Handlebars.registerHelper("roleCompare", function(role, compareRole) {
-    let str = "";
-    if (role === compareRole) str = "selected";
-    return new Handlebars.SafeString(str);
-  });
-
-  Handlebars.registerHelper("verifiedHelper", function(verified) {
-    let str = "";
-    if (verified) str = "checked";
-    return new Handlebars.SafeString(str);
-  });
 
   Handlebars.registerHelper("iconize", function(data) {
     let str;
@@ -111,17 +107,9 @@ let defaultProperties = [
   {
     id: 0,
     title: "Medicare & Health Insurance",
-    description: "Quaint and awesome....",
-    city: "Salt Lake City",
-    price: "2341333",
-    type: "Townhouse",
-    status: "standard",
-    rentable: "on",
-    bedrooms: "3",
-    bathrooms: "3",
-    area: "2344",
-    patios: "2",
-    active: "on",
+    description: "Medical expenses can be... ",
+    shortDescription: "The best in the business....",
+    status: "offer",
     imageFilename: "nylife1.png",
     dateCreated: "2019-06-10T21:09:19.280Z",
     dateUpdated: "2019-06-10T21:09:19.280Z",
@@ -130,17 +118,9 @@ let defaultProperties = [
   {
     id: 2,
     title: "Retirement Planning",
-    description: "Draw-dropping beauty",
-    city: "Compton",
-    price: "3453123",
-    type: "Townhouse",
+    description: "Planning for retirement?  ...",
+    shortDescription: "Protect your future....",
     status: "offer",
-    rentable: "on",
-    bedrooms: "3",
-    bathrooms: "3",
-    area: "3132",
-    patios: "2",
-    active: "on",
     imageFilename: "nylife2.png",
     dateCreated: "2019-06-10T21:14:43.167Z",
     dateUpdated: "2019-06-10T21:14:43.167Z",
@@ -149,17 +129,9 @@ let defaultProperties = [
   {
     id: 3,
     title: "Financial Planning & Investments",
-    description: "High-rise views of heaven",
-    city: "Paris",
-    price: "2341533",
-    type: "City Property",
+    description: "Secure your future....",
+    shortDescription: "The strongest hand....",
     status: "offer",
-    rentable: "on",
-    bedrooms: "5",
-    bathrooms: "3",
-    area: "4441",
-    patios: "2",
-    active: "on",
     imageFilename: "nylife3.png",
     dateCreated: "2019-06-10T21:15:44.247Z",
     dateUpdated: "2019-06-10T21:15:44.247Z",
@@ -168,17 +140,9 @@ let defaultProperties = [
   {
     id: 1,
     title: "Life & Disability Insurance",
-    description: "Fit for kings and queens",
-    city: "Petaluma",
-    price: "3452135",
-    type: "Vacation Home",
+    description: "Fit for kings and queens....",
+    shortDescription: "Prepare for contingencies....",
     status: "offer",
-    rentable: "on",
-    bedrooms: "3",
-    bathrooms: "4",
-    area: "3215",
-    patios: "2",
-    active: "on",
     imageFilename: "nylife4.png",
     dateCreated: "2019-06-10T21:14:09.271Z",
     dateUpdated: "2019-06-10T21:16:05.967Z",
@@ -186,32 +150,17 @@ let defaultProperties = [
   },
 ];
 
-let cityMatrix = {
-
-  "Los Angeles": 1,
-  "Salt Lake City": 2,
-  "Chicago": 3,
-  "London": 4,
-  "Petaluma": 5,
-  "Ogden": 6,
-  "Outback": 7,
-  "Venice": 8,
-  "Compton": 2,
-  "Paris": 3
-
-};
-
 let testimonials = [
 
   { 
-    title: "Amazing home for me", 
+    title: "Amazing service!", 
     testimonial: "Lorem ipsum dolor sit amet consectetur adipisicing elit. Animi veritatis exercitationem sapiente temporibus aut!", 
     image: "testimonial_1.jpg",
     name: "Diane Smith",
     role: "client"
   },
   { 
-    title: "Friendly realtors", 
+    title: "Great smile, great products", 
     testimonial: "Lorem ipsum dolor sit amet consectetur adipisicing elit. Animi veritatis exercitationem sapiente temporibus aut!", 
     image: "testimonial_2.jpg",
     name: "Michael Duncan",

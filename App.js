@@ -75,13 +75,13 @@ App.prototype.addWindowEventListeners = function() {
         this.router.setRouteLinks();
       });
     });
-  
-    this.router.add("/educationMaterials/workbenchProjects/review/bluesky-website-36a8b4d0fda447acb4971b9d/index.html", request => {
-      this.homeController.load(() => {
+
+    this.router.add("/about.html", request => {
+      this.aboutController.load(() => {
         this.router.setRouteLinks();
       });
     });
-  
+
     this.router.add("/management.html", request => {
       this.propertyManagementController.load(request, () => {
         this.router.setRouteLinks();
