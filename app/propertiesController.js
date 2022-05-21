@@ -1,10 +1,10 @@
 /* Norton's rendition of the BlueSky Page (June 2019) */
-import { PropertyStore } from "./propertyStore.js";
+import { ServiceStore } from "./serviceStore.js";
 import { PropertiesView } from "./views/propertiesView.js";
 
 class PropertiesController {
   constructor(callback) {
-    this.propertyStore = new PropertyStore();
+    this.serviceStore = new ServiceStore();
     this.propertiesView = new PropertiesView(() => {
       callback();
     });
@@ -12,10 +12,10 @@ class PropertiesController {
 }
 
 PropertiesController.prototype.load = function(request, callback) {
-  let allProperties = this.propertyStore.getAll();
-  let context = { properties: allProperties };
-  context.types = getFromProperties(allProperties, "type");
-  context.cities = getFromProperties(allProperties, "city");
+  let allServices = this.serviceStore.getAll();
+  let context = { properties: allServices };
+  context.types = getFromProperties(allServices, "type");
+  context.cities = getFromProperties(allServices, "city");
 
   var params = {};
 

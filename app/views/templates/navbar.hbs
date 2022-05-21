@@ -1,76 +1,55 @@
-<nav class="navbar navbar-expand-sm fixed-top navbar-light bg-primary">
-    <div class="container-fluid">
-        <a class="navbar-brand" href="#"><img id="navLogo" width="300"
+<nav class="navbar navbar-expand-md fixed-top navbar-light bg-primary">
+  <div class="container-fluid">
+    <a class="navbar-brand" href="#"><img id="navLogo" width="300"
             src="/assets/logo2/eFinancialInsurance-logos_white.png" alt="eFinancialInsurance" /></a>
-        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarID"
-            aria-controls="navbarID" aria-expanded="false" aria-label="Toggle navigation">
-            <span class="navbar-toggler-icon"></span>
-        </button>
-        <div class="collapse navbar-collapse" id="navbarID">
-            
-            <ul class="navbar-nav me-auto my-2 my-lg-0 navbar-nav-scroll" style="--bs-scroll-height: 100px;">
-                
-                {{!-- <a href="/management.html" data-route-link>Manage</a><br> --}}
-                <li class="nav-item">
-                    <a class="nav-link {{indexActive}}" href="/index.html" data-route-link><i class="fa fa-home" aria-hidden="true"></i></a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="/about.html">About</a>
-                </li>
-                
-                {{!--  --}}
-                
-                
-                <li class="nav-item dropdown">
-                    <a class="nav-link dropdown-toggle" href="#" id="navbarScrollingDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-                        Services
-                    </a>
-                    <ul class="dropdown-menu" aria-labelledby="navbarScrollingDropdown">
-                        <li><a class="dropdown-item" href="#">Service 1</a></li>
-                        <li><a class="dropdown-item" href="#">Service 2</a></li>
-                        <li><hr class="dropdown-divider"></li>
-                        <li><a class="dropdown-item {{propertiesActive}}" href="/properties.html" data-route-link>Overview</a></li>
-                    </ul>
-                </li>
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarNavDropdown">
+      <ul class="navbar-nav me-auto my-2 my-lg-0 navbar-nav-scroll">
+        {{!-- <a href="/management.html" data-route-link>Manage</a><br> --}}
+        <li class="nav-item">
+          <a class="nav-link {{indexActive}}" data-route-link aria-current="page" href="/index.html"><i class="fa fa-home" aria-hidden="true"></i></a>
+        </li>
+        <li class="nav-item">
+            <a class="nav-link {{about}}" href="/generic.html?page=about">About</a>
+        </li>
+        <li class="nav-item dropdown">
+          <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+            Services
+          </a>
+          <ul class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
 
-                <li class="nav-item dropdown">
-                    <a class="nav-link dropdown-toggle" href="#" id="navbarScrollingDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-                        Info
-                    </a>
-                    <ul class="dropdown-menu" aria-labelledby="navbarScrollingDropdown">
-                        <li><a class="dropdown-item" href="#">Info 1</a></li>
-                        <li><a class="dropdown-item" href="#">Info 2</a></li>
-                        <li><hr class="dropdown-divider"></li>
-                        <li><a class="dropdown-item {{infoActive}}" href="/information.html" data-route-link>Overview</a></li>
-                    </ul>
-                </li>
-
-                <li class="nav-item dropdown">
-                    <a class="nav-link dropdown-toggle" href="#" id="navbarScrollingDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-                        Logins
-                    </a>
-                    <ul class="dropdown-menu" aria-labelledby="navbarScrollingDropdown">
-                        <li><a class="dropdown-item" href="https://wealth.emaplan.com/nylife/SignIn?nylife">eMoney</a></li>
-                        <li><a class="dropdown-item" href="https://www.mystreetscape.com/login/NYLIFEsecurities/investor-index.html?login">Eagle Strategies</a></li>
-                        <li><a class="dropdown-item" href="https://www.mynyl.newyorklife.com/VSCRegWebApp/login?resume=%2Fas%2FDiMyM%2Fresume%2Fas%2Fauthorization.ping&spentity=null">New York Life</a></li>
-                        <li><a class="dropdown-item" href="https://www.secureaccountview.com/BFWeb/clients/mainstayfunds/index">Main Stay Funds</a></li>
-                        <li><a class="dropdown-item" href="https://www.capitalgroup.com/individual/accounts/login.htm">American Funds</a></li>
-                    </ul>
-                </li>
-
-                <li class="nav-item">
-                    <a class="nav-link {{contactActive}}" href="/contact.html" data-route-link>Contact</a>
-                </li>
-            </ul>
-
-            <div id="navPhone" class="outlineButton">
-                <button class="outlinedButton small"><i class="fas fa-phone"></i> (801) 859 1472</button>
-            </div>
-            {{!-- <form class="d-flex">
-                <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
-                <button class="btn btn-outline-success" type="submit">Search</button>
-            </form> --}}
-           
-        </div>
+            {{#each allServices}}
+            <li><a class="dropdown-item {{serviceDetail}}" href="/generic.html?page=serviceDetail&serviceId={{id}}">{{title}}</a></li>
+            {{/each}}
+            <li><hr class="dropdown-divider"></li>
+            <li><a class="dropdown-item {{services}}" href="/generic.html?page=services" data-route-link>Overview</a></li>
+          </ul>
+        </li>
+        <li class="nav-item dropdown {{logins}}">
+          <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink2" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+            Logins
+          </a>
+          <ul class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink2">
+            <li><a class="dropdown-item" href="https://wealth.emaplan.com/nylife/SignIn?nylife">eMoney</a></li>
+            <li><a class="dropdown-item" href="https://www.mystreetscape.com/login/NYLIFEsecurities/investor-index.html?login">Eagle Strategies</a></li>
+            <li><a class="dropdown-item" href="https://www.mynyl.newyorklife.com/VSCRegWebApp/login?resume=%2Fas%2FDiMyM%2Fresume%2Fas%2Fauthorization.ping&spentity=null">New York Life</a></li>
+            <li><a class="dropdown-item" href="https://www.secureaccountview.com/BFWeb/clients/mainstayfunds/index">Main Stay Funds</a></li>
+            <li><a class="dropdown-item" href="https://www.capitalgroup.com/individual/accounts/login.htm">American Funds</a></li>
+          </ul>
+        </li>
+        <li class="nav-item">
+            <a class="nav-link {{contact}}" href="/generic.html?page=contact" data-route-link>Contact</a>
+        </li>
+      </ul>
+      <div id="navPhone" class="outlineButton">
+        <button class="outlinedButton small"><i class="fas fa-phone"></i> (801) 859 1472</button>
+      </div>
+        {{!-- <form class="d-flex">
+            <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
+            <button class="btn btn-outline-success" type="submit">Search</button>
+        </form> --}}
     </div>
+  </div>
 </nav>

@@ -1,16 +1,16 @@
-/* Norton's rendition of the MVC Property Mgmt Page (June 2019) */
-import { Messages } from "./views/messagesView.js"
+/**
+ * MessagesView
+ * @author Norton 2022
+ */
+import { MessagesView } from "./views/messagesView.js"
 
-class MessagesController {
+export class MessagesController {
 
     constructor() {
-        this.messages = new Messages(this);
+        this.messages = new MessagesView(this);
+    }
+
+    displayMessage(message) {
+        this.messages.updateMessage(message);
     }
 }
-
-MessagesController.prototype.displayMessage = function(message) {
-    this.messages.updateMessage(message);
-}
-
-
-export { MessagesController };

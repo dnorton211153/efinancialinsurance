@@ -1,4 +1,4 @@
-#home {
+#home, #services {
     margin-top: 40px;
     text-align: center;
 }
@@ -12,20 +12,20 @@
 
 #homeImageOverlay {
     position: absolute;
-    top: 350px;
+    top: 300px;
     left: 50%;
     transform: translate(-50%, -50%);
     width: 70%;
 }
 
-#homePropertyContainer {
-    height: 600px;
+#homeServiceContainer {
+    height: 360px;
     padding: 10%;
     width: 100%;
     overflow: hidden;
 }
 
-#homePropertyTitle {
+#homeServiceTitle {
     font-size: 40px; font-weight: 600;
 }
 
@@ -58,7 +58,7 @@
 }
 
 .navbar-nav a.active {
-    color: white;
+    color: yellow  !important; 
 }
 
 #contactImage, #homeImage {
@@ -66,7 +66,7 @@
     width: 100%;
 }
 
-#properties {
+#services {
     position: relative;
     left: 0;
     width: 100%;
@@ -75,12 +75,16 @@
     min-height: 100%;
 }
 
-#propertiesImage {
+#servicesImage {
     position: relative;
     width: 100%;
 }
 
-@media (max-width: 920px) {
+.serviceImage {
+    max-width: 50%
+}
+
+@media (max-width: 890px) {
     .outlineButton {
         display: none;
     }
@@ -88,7 +92,7 @@
 
 #footer {
     background-image: url("images/newsletter.jpg");
-    height: 100px;
+    height: 200px;
 }
 
     #footer #footerRow {
@@ -192,5 +196,5 @@
             #priceBubble, #homeAmenitiesBubble {
                 background: linear-gradient(to right, yellow, blue);
                 overflow: hidden;
-                width: 350px;
+                width: 150px;
             }

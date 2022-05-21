@@ -4,17 +4,15 @@
  */
 import { AppView } from './views/appView.js'
 
-class AppController {
+export class AppController {
 
     constructor(callback) {
         this.appView = new AppView(() => { callback() });
     }
-}
 
-AppController.prototype.load = function(callback) {
-    this.appView.render(() => {
-        callback();
-    });
+    load(callback) {
+        this.appView.render(() => {
+            callback();
+        });
+    }
 }
-
-export { AppController };

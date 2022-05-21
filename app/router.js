@@ -1,27 +1,32 @@
-import { NewsletterListStore } from "./newsletterListStore.js";
-
-/* Norton's rendition of the MVC Property Mgmt Page (June 2019) */
+/**
+ * Generic router to override default link handling within the application
+ * @author Norton 2022
+ */
 class Router {
 
     constructor() {
         this.routingTable = {};
         this.navigateTo = this.navigateTo.bind(this);
         this.setRouteLinks = this.setRouteLinks.bind(this);
-
     }
 }
 
-/* Add(path, handler) - adds a path to the router list with a handler 
-function that takes a request object.  The request object should have a 
-parameters Prop with any parameters provided by the path.  All 
-parameters will be parsed from query string, i.e. /property.html?propertyId=4*/
+/**
+ * Add(path, handler) - adds a path to the router list with a handler function
+ * @param {String} path e.g. '/property.html' ?
+ * @param {fn(props)} handler fn for this path, where props is array of URL params, 
+ *                            e.g. [propertyId=4,uid=whatever]
+ */
 Router.prototype.add = function(path, handler) {
     this.routingTable[path] = handler;
 }
 
-/* navigateTo(path, query) - calls the handler method from the router list 
-and passes a request object.  This function will need to parse out any 
-query string parameters and build the request object */
+/**
+ * navigateTo(path, query)
+ * @param {String} path 
+ * @param {String} query 
+ * @param {Boolean} pop 
+ */
 Router.prototype.navigateTo = function(path, query, pop) {
 
     let handler = this.routingTable[path];
@@ -40,55 +45,22 @@ Router.prototype.navigateTo = function(path, query, pop) {
     handler(request);
 }
 
-/* setRouteLinks - finds all the links (anchors) that need to be handled 
-by the router and attaches a method to call navigateTo
-
-Note: the HTMLAnchorElement has the following properties:
-pathname - path from the href attribute (no query string)
-search - query string including leading ? from the href attribute */
+/**
+ *  setRouteLinks - finds all the links (anchors) that need to be 
+ * handled by the router and attaches a method to call navigateTo
+ */
 Router.prototype.setRouteLinks = function() {
 
     let anchorElements = document.querySelectorAll('a[data-route-link]');
     anchorElements.forEach(el => {
         el.addEventListener('click', e => {
+            // HTMLAnchorElement has the following properties:
+            // pathname - path from the href attribute (no query string)
+            // search - query string including leading ? from the href attribute 
             this.navigateTo(el.pathname, el.search, false);
             e.preventDefault();
         });
     });
-
-    // Searchbar form submit behavior
-    if (document.querySelector('#searchbar') != null) {
-        document.querySelector('#searchbar').addEventListener('submit', e => {
-        
-            var pathname = e.currentTarget.action;
-            pathname = "/" + pathname.split("/")[3];
-    
-            // Create query string based on form-control items
-            var querystring = "?";
-            e.currentTarget.querySelectorAll('.form-control').forEach(fe => {
-                querystring += fe.name + "=" + fe.value + "&";
-            });
-            
-            querystring = querystring.slice(0,querystring.length - 1);
-            
-            this.navigateTo(pathname, querystring, false);
-            e.preventDefault();
-        });
-    }
-
-    // newsletterForm form submit behavior
-    if (document.querySelector('#newsletterForm') != null) {
-        document.querySelector('#newsletterForm').addEventListener('submit', e => {
-
-            this.newsletterListStore = new NewsletterListStore();
-            var emailAddress = e.currentTarget.querySelector('.form-control').value;
-            let newEntry = { id: this.newsletterListStore.uniqueId(), email: emailAddress };
-            if (this.newsletterListStore.add(newEntry)) {
-                alert("Thank you!  You have been added to our mailing list.")
-            };
-            e.preventDefault();
-        });
-    }
 }
 
 

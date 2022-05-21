@@ -4,12 +4,23 @@ getOptions = () => {
   }
 }
 
+// Assumes Handlebars has been preloaded
 getTemplate = async (url) => {
   try {
     let response = await fetch(url, getOptions());
     let text = await response.text();
     let template = Handlebars.compile(text);
     return template;
+  } catch (error) {
+    throw error;
+  }
+}
+
+handleGet = async (url) => {
+  try {
+    let response = await fetch(url, getOptions());
+    let text = await response.text();
+    return text;
   } catch (error) {
     throw error;
   }
@@ -41,8 +52,13 @@ function getParamsFromRequest(request) {
     for (let el of parameters) {
       let [ name, value ] = el.split("=");
 
-      value = value.replace(/\+/g," ");
-      if (value != "null") paramObj[name] = value;
+      if (value) {
+        value = value.replace(/\+/g," ");
+        paramObj[name] = value;
+      } else {
+        paramObj[name] = null;
+      }
+      
     }
 
   }
@@ -50,10 +66,10 @@ function getParamsFromRequest(request) {
 
 }
 
-function getFromProperties(allProperties, attrName) {
+function getFromProperties(allServices, attrName) {
 
   let attrArray = [];
-  for (let p of allProperties) {
+  for (let p of allServices) {
       if (!attrArray.includes(p[attrName])) attrArray.push(p[attrName]);
   }
 
@@ -97,13 +113,13 @@ function registerHandlebarsHelpers() {
   });
 }
 
-function loadDefaultProperties() {
-    return defaultProperties;
+function loadDefaultServices() {
+    return defaultServices;
 }
 
 registerHandlebarsHelpers();
 
-let defaultProperties = [
+let defaultServices = [
   {
     id: 0,
     title: "Medicare & Health Insurance",

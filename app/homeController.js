@@ -1,38 +1,41 @@
-/* Norton's rendition of the MVC Property Mgmt Page (June 2019) */
+/**
+ * HomeController
+ * @author Norton 2022
+ */
 import { HomeView } from "./views/homeView.js";
-import { PropertyStore } from "./propertyStore.js";
+import { ServiceStore } from "./serviceStore.js";
 import { EventDepot } from "./eventDepot.js";
 
 export class HomeController {
 
-    constructor() {
-        this.propertyStore = new PropertyStore();
+    constructor(router) {
+        this.serviceStore = new ServiceStore();
         this.eventDepot = new EventDepot();
-        this.homeView = new HomeView();
+        this.homeView = new HomeView(router);
     }
 
     load() {
-        let allProperties = this.propertyStore.getAll()
+        let allServices = this.serviceStore.getAll()
 
-        if (Object.keys(allProperties).length == 0) {
-            allProperties = loadDefaultProperties();
-            this.propertyStore.overwriteStorage(allProperties);
+        if (Object.keys(allServices).length == 0) {
+            allServices = loadDefaultServices();
+            this.serviceStore.overwriteStorage(allServices);
         }
     
-        allProperties = shuffle(allProperties);
+        allServices = shuffle(allServices);
 
         let context = {};
 
         // Featured (offer) service
-        if (allProperties.find(el => el.status == 'offer') != undefined) 
-        context = allProperties.find(el => el.status == 'offer');
+        if (allServices.find(el => el.status == 'offer') != undefined) 
+        context = allServices.find(el => el.status == 'offer');
 
-        // Sort the allProperties array in reverse by dateUpdated; take the top three
-        allProperties = allProperties.sort((a, b) => a.dateUpdated > b.dateUpdated);
-        let someProperties = allProperties.filter((el, index) => index < 3);
+        // Sort the allServices array in reverse by dateUpdated; take the top three
+        allServices = allServices.sort((a, b) => a.dateUpdated > b.dateUpdated);
 
-        if (allProperties.length > 0) {
-            context.properties = someProperties;
+
+        if (allServices.length > 0) {
+            context.allServices = allServices;
             context.testimonials = testimonials;
         }
 

@@ -4,25 +4,22 @@
  */
 class HomeView {
 
-    constructor() {
-        this.dom = document.getElementById('mainPlaceholder');
-    }
-
-    async getTemplate() {
-        return await getTemplate('app/views/templates/home.hbs');
+    constructor(router) {
+        this.router = router;
     }
 
     async render(context) {
         if (!context) var context = {};
         context.indexActive = 'active';
-        context.propertyActive = '';
 
         if (!this.template) {
-            this.template = await this.getTemplate();
+            this.template = await getTemplate('app/views/templates/home.hbs');
         } 
 
+        this.dom = document.getElementById('mainPlaceholder');
         this.dom.innerHTML = this.template(context);
 
+        this.router.setRouteLinks();
         document.title = `eFinancialInsurance`;
         window.scrollTo(0,0);
     }

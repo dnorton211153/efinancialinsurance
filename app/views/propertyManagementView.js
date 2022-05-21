@@ -21,8 +21,7 @@ class PropertyManagementView {
     render(callback, propertyObj, configObj) {
 
         if (!propertyObj) var propertyObj = {};
-        propertyObj.indexActive = '';
-        propertyObj.propertyActive = '';
+
         this.dom.innerHTML = this.template(propertyObj);
 
         if (!configObj) var configObj = {};

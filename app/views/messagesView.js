@@ -1,19 +1,17 @@
-/* Norton's rendition of the MVC Property Mgmt Page (June 2019) */
-class Messages {
-
+/**
+ * MessagesView
+ * @author Norton 2022
+ */
+export class MessagesView {
     constructor() { }
 
-}
+    async updateMessage(message) {
+        let context = { 'hidden': false, 'message': message };
 
-Messages.prototype.updateMessage = function(message) {
-
-    let context = { 'hidden': false, 'message': message };
-
-    fetch("app/views/templates/messages.hbs").then(response => response.text()).then(text => {
-        let template = Handlebars.compile(text);
-        document.getElementById('messagesPlaceholder').innerHTML = template(context);
-    });
+        if (!this.template) {
+            this.template = await getTemplate('app/views/templates/messages.hbs');
+        } 
     
+        document.getElementById('messagesPlaceholder').innerHTML = template(context);
+    }
 }
-
-export { Messages };

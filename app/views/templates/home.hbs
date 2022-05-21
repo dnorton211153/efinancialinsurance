@@ -4,15 +4,15 @@
 
   <div id="properties">
     <!-- insert custom home-page graphic here -->
-    <a href="/property.html?propertyId={{id}}" data-route-link>
-    <div id="homePropertyContainer">
+    <a href="/generic.html?page=serviceDetail&serviceId={{id}}" data-route-link>
+    <div id="homeServiceContainer">
 
       <img id="homeImage" src="images/{{imageFilename}}" alt="{{imageFilename}}">
 
       <div id="homeImageOverlay">
 
         <div style="font-size: 36px;" class="text-white text-left">{{title}}</div>
-        <div id="homePropertyTitle" class="text-left text-white fs-5 pb-4">{{shortDescription}}</div>
+        <div id="homeServiceTitle" class="text-left text-white fs-5 pb-4">{{shortDescription}}</div>
 
         {{!-- <div id="homeAmenitiesBubble"
           class="d-flex text-white badge rounded-pill justify-content-center align-items-center py-2 px-2"
@@ -32,13 +32,13 @@
   </div>
 
 
-  <h2 class="text-dark">{{properties.length}} featured services</h2>
+  <h2 class="text-dark">{{allServices.length}} featured services</h2>
 
   <div id="cardsContainer" class="bg-white">
 
     <div class="cards">
 
-      {{#each properties}}
+      {{#each allServices}}
 
       <a href="/property.html?propertyId={{id}}" data-route-link>
         <div class="card">
