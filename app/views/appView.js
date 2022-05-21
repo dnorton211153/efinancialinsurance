@@ -11,7 +11,7 @@ class AppView {
     this.preLoad("https://cdn.jsdelivr.net/npm/handlebars@latest/dist/handlebars.js", () => {
       this.preLoad("https://kit.fontawesome.com/48d135817c.js", () => {
         this.preLoad("https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js", () => {
-          this.preLoad("general.js", () => {
+          this.preLoad("/general.js", () => {
 
             // After HB is loaded, get the header
             fetch("app/views/templates/appHead.html").then(response => response.text()).then(text => {
