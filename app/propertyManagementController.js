@@ -1,5 +1,4 @@
 /* Norton's rendition of the BlueSky Page (June 2019) */
-import { ServiceStore } from "./serviceStore.js";
 import { PropertyManagementView } from "./views/propertyManagementView.js";
 import { PropertyMasterView } from "./views/propertyMasterView.js";
 import { PropertyDetailsView } from "./views/propertyDetailsView.js";
@@ -49,7 +48,7 @@ PropertyManagementController.prototype.load = function(request, callback) {
 
     if (request) {
         let params = getParamsFromRequest(request);
-        this.propertyObj = this.serviceStore.get(params.propertyId);
+        // this.propertyObj = this.serviceStore.get(params.propertyId);
     }
 
     this.propertyManagementView.render(() => {

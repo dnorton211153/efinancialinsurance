@@ -3,26 +3,19 @@
  * @author Norton 2022
  */
 import { HomeView } from "./views/homeView.js";
-import { ServiceStore } from "./serviceStore.js";
 import { EventDepot } from "./eventDepot.js";
+import { defaultServices, testimonials } from "./database.js"
+
 
 export class HomeController {
 
     constructor(router) {
-        this.serviceStore = new ServiceStore();
         this.eventDepot = new EventDepot();
         this.homeView = new HomeView(router);
     }
 
     load() {
-        // let allServices = this.serviceStore.getAll()
         let allServices = defaultServices;
-
-        if (Object.keys(allServices).length == 0) {
-            allServices = loadDefaultServices();
-            this.serviceStore.overwriteStorage(allServices);
-        }
-    
         allServices = shuffle(allServices);
 
         let context = {};

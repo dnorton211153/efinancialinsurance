@@ -17,10 +17,6 @@ class PropertyMasterView {
 
 PropertyMasterView.prototype.resetPropertyRows = async function(rows) {
 
-    while (! this.templateRetrieved) {
-        await delay();
-    }
-
     let context = { 'properties': rows };    
     document.getElementById('propertyMasterPlaceholder').innerHTML = this.template(context);
 

@@ -17,14 +17,12 @@ class PropertyDetailsView {
 PropertyDetailsView.prototype.clearSlate = async function() {
   let context = { id: this.currentPropertyId };
 
-  while (!this.templateRetrieved) await delay();
   document.getElementById("propertyDetailPlaceholder").innerHTML = this.template(context);
   document.getElementById("title").focus();
   this.addButtonListeners();
 };
 
 PropertyDetailsView.prototype.hideInputForm = async function() {
-  while (!this.templateRetrieved) await delay();
   document.getElementById("inputForm").hidden = true;
   document.getElementById("btnSave").hidden = true;
   document.getElementById("btnCancel").hidden = true;
@@ -68,7 +66,6 @@ PropertyDetailsView.prototype.getFormInputValues = function() {
 };
 
 PropertyDetailsView.prototype.populatePropertyDetails = async function(currentProperty) {
-  while (!this.templateRetrieved) await delay();
   document.getElementById("propertyDetailPlaceholder").innerHTML = this.template(currentProperty);
   this.addButtonListeners();
   document.title = "Edit " + currentProperty.name;
