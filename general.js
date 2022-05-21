@@ -1,11 +1,11 @@
-getOptions = () => {
+const getOptions = () => {
   return {
       method: 'GET',
   }
 }
 
 // Assumes Handlebars has been preloaded
-getTemplate = async (url) => {
+const getTemplate = async (url) => {
   try {
     let response = await fetch(url, getOptions());
     let text = await response.text();
@@ -16,7 +16,7 @@ getTemplate = async (url) => {
   }
 }
 
-handleGet = async (url) => {
+const handleGet = async (url) => {
   try {
     let response = await fetch(url, getOptions());
     let text = await response.text();
