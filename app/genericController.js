@@ -9,7 +9,7 @@ class GenericController {
     load(request) {
 
         let allServices = defaultServices;
-        allServices = shuffle(allServices);
+        // allServices = shuffle(allServices);
 
         // At least one param is required; the templateName
         let params = getParamsFromRequest(request);
