@@ -13,9 +13,9 @@ class Router {
 
 /**
  * Add(path, handler) - adds a path to the router list with a handler function
- * @param {String} path e.g. '/property.html' ?
+ * @param {String} path e.g. '/generic.html' ?
  * @param {fn(props)} handler fn for this path, where props is array of URL params, 
- *                            e.g. [propertyId=4,uid=whatever]
+ *                            e.g. [page=about,serviceId=4,uid=whatever]
  */
 Router.prototype.add = function(path, handler) {
     this.routingTable[path] = handler;

@@ -16,7 +16,7 @@ class HomeView {
             this.template = await getTemplate('app/views/templates/home.hbs');
         } 
 
-        this.dom = document.getElementById('mainPlaceholder');
+        this.dom = document.getElementById('main');
         this.dom.innerHTML = this.template(context);
 
         this.router.setRouteLinks();

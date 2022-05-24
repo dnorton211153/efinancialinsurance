@@ -6,13 +6,11 @@ import { AppView } from './views/appView.js'
 
 export class AppController {
 
-    constructor(callback) {
-        this.appView = new AppView(() => { callback() });
+    constructor() {
+        this.appView = new AppView();
     }
 
-    load(callback) {
-        this.appView.render(() => {
-            callback();
-        });
+    async load() {
+        await this.appView.render();
     }
 }

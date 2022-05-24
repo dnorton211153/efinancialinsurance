@@ -12,6 +12,6 @@ export class MessagesView {
             this.template = await getTemplate('app/views/templates/messages.hbs');
         } 
     
-        document.getElementById('messagesPlaceholder').innerHTML = template(context);
+        document.getElementById('messages').innerHTML = this.template(context);
     }
 }

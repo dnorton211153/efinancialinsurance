@@ -9,10 +9,10 @@
       <ul class="navbar-nav me-auto my-2 my-lg-0 navbar-nav-scroll">
         {{!-- <a href="/management.html" data-route-link>Manage</a><br> --}}
         <li class="nav-item">
-          <a class="nav-link {{indexActive}}" data-route-link aria-current="page" href="/index.html"><i class="fa fa-home" aria-hidden="true"></i></a>
+          <a class="nav-link" data-route-link aria-current="page" href="/index.html"><i class="fa fa-home" aria-hidden="true"></i></a>
         </li>
         <li class="nav-item">
-            <a class="nav-link {{about}}" data-route-link href="/generic.html?page=about">About</a>
+            <a class="nav-link" data-route-link href="/generic.html?page=about">About</a>
         </li>
         <li class="nav-item dropdown">
           <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" role="button" data-bs-toggle="dropdown" aria-expanded="false">
@@ -24,10 +24,10 @@
             <li><a class="dropdown-item {{serviceDetail}}" data-route-link href="/generic.html?page=serviceDetail&serviceId={{id}}">{{title}}</a></li>
             {{/each}}
             <li><hr class="dropdown-divider"></li>
-            <li><a class="dropdown-item {{services}}" href="/generic.html?page=services" data-route-link>Overview</a></li>
+            <li><a class="dropdown-item" href="/generic.html?page=services" data-route-link>Overview</a></li>
           </ul>
         </li>
-        <li class="nav-item dropdown {{logins}}">
+        <li class="nav-item dropdown">
           <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink2" role="button" data-bs-toggle="dropdown" aria-expanded="false">
             Logins
           </a>
@@ -40,7 +40,7 @@
           </ul>
         </li>
         <li class="nav-item">
-            <a class="nav-link {{contact}}" href="/generic.html?page=contact" data-route-link>Contact</a>
+            <a class="nav-link" href="/generic.html?page=contact" data-route-link>Contact</a>
         </li>
       </ul>
       <div id="navPhone" class="outlineButton">

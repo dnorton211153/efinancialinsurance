@@ -1,6 +1,6 @@
 /**
  * GenericView is for non-dynamic pages like Contact and About;
- * just grabs the HBS template and places it in the mainPlaceholder;
+ * just grabs the HBS template and places it in the main;
  * when rendering provide templateName and optional context params.
  */
 class GenericView {
@@ -14,7 +14,7 @@ class GenericView {
 
         this.template = await getTemplate(`app/views/templates/${templateName}.hbs`);
 
-        this.dom = document.getElementById('mainPlaceholder');
+        this.dom = document.getElementById('main');
         this.dom.innerHTML = this.template(context);
 
         this.router.setRouteLinks();
