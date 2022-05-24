@@ -49,18 +49,21 @@ Router.prototype.navigateTo = function(path, query, pop) {
  *  setRouteLinks - finds all the links (anchors) that need to be 
  * handled by the router and attaches a method to call navigateTo
  */
-Router.prototype.setRouteLinks = function() {
+Router.prototype.setRouteLinks = function(...nodes) {
 
-    let anchorElements = document.querySelectorAll('a[data-route-link]');
-    anchorElements.forEach(el => {
-        el.addEventListener('click', e => {
-            // HTMLAnchorElement has the following properties:
-            // pathname - path from the href attribute (no query string)
-            // search - query string including leading ? from the href attribute 
-            this.navigateTo(el.pathname, el.search, false);
-            e.preventDefault();
+    nodes.forEach(node => {
+        let anchorElements = node.querySelectorAll('a[data-route-link]');
+        anchorElements.forEach(el => {
+            el.addEventListener('click', e => {
+                // HTMLAnchorElement has the following properties:
+                // pathname - path from the href attribute (no query string)
+                // search - query string including leading ? from the href attribute 
+                this.navigateTo(el.pathname, el.search, false);
+                e.preventDefault();
+            });
         });
-    });
+    })
+
 }
 
 

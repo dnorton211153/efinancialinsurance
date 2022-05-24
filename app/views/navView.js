@@ -26,7 +26,7 @@
         this.foot = document.getElementById('foot');
         this.foot.innerHTML = this.footerTemplate(context);
 
-        this.router.setRouteLinks();
+        this.router.setRouteLinks(this.nav, this.foot);
 
         const navLinks = document.querySelectorAll('.nav-item:not(.dropdown), .dropdown-item');
         const menuToggle = document.getElementById('navbarNavDropdown');

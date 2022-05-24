@@ -19,7 +19,7 @@ class HomeView {
         this.dom = document.getElementById('main');
         this.dom.innerHTML = this.template(context);
 
-        this.router.setRouteLinks();
+        this.router.setRouteLinks(this.dom);
         document.title = `eFinancialInsurance`;
         window.scrollTo(0,0);
     }

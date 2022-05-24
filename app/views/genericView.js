@@ -17,7 +17,7 @@ class GenericView {
         this.dom = document.getElementById('main');
         this.dom.innerHTML = this.template(context);
 
-        this.router.setRouteLinks();
+        this.router.setRouteLinks(this.dom);
         document.title = `eFinancialInsurance - ${templateName}`;
         // document.documentElement.scrollTop = 0;
         window.scrollTo(0,0);
