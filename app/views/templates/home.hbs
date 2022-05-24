@@ -7,7 +7,7 @@
     <a href="/generic.html?page=serviceDetail&serviceId={{id}}" data-route-link>
     <div id="homeServiceContainer">
 
-      <img id="homeImage" src="images/{{imageFilename}}" alt="{{imageFilename}}">
+      <img id="homeImage" src="/images/{{imageFilename}}" alt="{{imageFilename}}">
 
       <div id="homeImageOverlay">
 
@@ -17,9 +17,9 @@
         {{!-- <div id="homeAmenitiesBubble"
           class="d-flex text-white badge rounded-pill justify-content-center align-items-center py-2 px-2"
           style="font-size: 12px; font-weight: 600;">
-          <div class="flex-fill"> <img src="images/icon_1.png" alt="icon_1"> {{area}} Sqft</div>
-          <div class="flex-fill"> <img src="images/icon_2.png" alt="icon_2"> {{bedrooms}} bedrooms</div>
-          <div class="flex-fill"> <img src="images/icon_3.png" alt="icon_3"> {{bathrooms}} bathrooms</div>
+          <div class="flex-fill"> <img src="/images/icon_1.png" alt="icon_1"> {{area}} Sqft</div>
+          <div class="flex-fill"> <img src="/images/icon_2.png" alt="icon_2"> {{bedrooms}} bedrooms</div>
+          <div class="flex-fill"> <img src="/images/icon_3.png" alt="icon_3"> {{bathrooms}} bathrooms</div>
         </div> --}}
 
         <div style="font-size: 36px; font-weight: 600;" class="text-white text-left py-5">$ {{price}}</div>
@@ -42,7 +42,7 @@
 
       <a href="/generic.html?page=serviceDetail&serviceId={{id}}" data-route-link>
         <div class="card">
-          <img class="cardImage" src="images/{{imageFilename}}" alt="{{imageFilename}}">
+          <img class="cardImage" src="/images/{{imageFilename}}" alt="{{imageFilename}}">
           <div class="cardCity">{{title}}</div>
           <div class="cardType">{{shortDescription}}</div>
           <div class="cardPrice">$ {{price}}</div>
@@ -76,7 +76,7 @@
 
           <div class="row flex-row align-items-center">
             <div class="col-3">
-              <img class="testimonialImage rounded-circle mt-3 mb-2" src="images/{{image}}" alt="{{image}}">
+              <img class="testimonialImage rounded-circle mt-3 mb-2" src="/images/{{image}}" alt="{{image}}">
             </div>
             <div class="col-9 flex-column justify-content-center align-items-center">
               <div><span class="testimonialName font-weight-bold text-success">{{name}}</span>, {{role}}</div>

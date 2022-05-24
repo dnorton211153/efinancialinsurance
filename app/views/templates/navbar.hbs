@@ -12,7 +12,7 @@
           <a class="nav-link {{indexActive}}" data-route-link aria-current="page" href="/index.html"><i class="fa fa-home" aria-hidden="true"></i></a>
         </li>
         <li class="nav-item">
-            <a class="nav-link {{about}}" href="/generic.html?page=about">About</a>
+            <a class="nav-link {{about}}" data-route-link href="/generic.html?page=about">About</a>
         </li>
         <li class="nav-item dropdown">
           <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" role="button" data-bs-toggle="dropdown" aria-expanded="false">
@@ -21,7 +21,7 @@
           <ul class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
 
             {{#each allServices}}
-            <li><a class="dropdown-item {{serviceDetail}}" href="/generic.html?page=serviceDetail&serviceId={{id}}">{{title}}</a></li>
+            <li><a class="dropdown-item {{serviceDetail}}" data-route-link href="/generic.html?page=serviceDetail&serviceId={{id}}">{{title}}</a></li>
             {{/each}}
             <li><hr class="dropdown-divider"></li>
             <li><a class="dropdown-item {{services}}" href="/generic.html?page=services" data-route-link>Overview</a></li>

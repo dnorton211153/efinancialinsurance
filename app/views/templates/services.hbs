@@ -1,7 +1,7 @@
 {{> navbar }}
 
 <div id="services">
-    <img id="servicesImage" src="images/properties.jpg" alt="Properties">
+    <img id="servicesImage" src="/images/properties.jpg" alt="Properties">
     {{!-- {{> searchbar }} --}}
 
     <h2>{{allServices.length}} Services Available</h2>
@@ -14,7 +14,7 @@
 
                 <a href="/generic.html?page=serviceDetail&serviceId={{id}}" data-route-link>
                 <div class="card">
-                    <img class="cardImage" src="images/{{imageFilename}}" alt="{{imageFilename}}">
+                    <img class="cardImage" src="/images/{{imageFilename}}" alt="{{imageFilename}}">
                     <div class="cardCity">{{title}}</div>
                     <div class="cardType">{{shortDescription}}</div>
                     <div class="cardPrice">$ {{price}}</div>
